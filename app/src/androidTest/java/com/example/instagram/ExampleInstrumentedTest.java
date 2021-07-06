@@ -1,4 +1,4 @@
-package com.example.instragram;
+package com.example.instagram;
 
 import android.content.Context;
 
