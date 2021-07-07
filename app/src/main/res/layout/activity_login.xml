@@ -13,7 +13,6 @@
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:ems="10"
         android:hint="Username" />
 
@@ -21,7 +20,6 @@
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword" />
@@ -30,7 +28,6 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:background="#E1306C"
         android:backgroundTint="#E1306C"
         android:text="@string/login" />
