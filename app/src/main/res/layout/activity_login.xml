@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
     android:orientation="vertical"
-    tools:context="activities.LoginActivity">
+    tools:context="com.example.instagram.activities.LoginActivity">
 
     <EditText
         android:id="@+id/etUsername"
