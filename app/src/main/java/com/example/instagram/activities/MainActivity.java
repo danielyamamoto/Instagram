@@ -1,8 +1,10 @@
 package com.example.instagram.activities;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,14 +15,17 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.instagram.R;
 import com.example.instagram.databinding.ActivityMainBinding;
 import com.example.instagram.utils.Post;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -41,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView ivPostImage;
     private Button btnSubmit, btnCaptureImage;
     private File photoFile;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         ivPostImage = binding.ivPostImage;
         btnCaptureImage = binding.btnCaptureImage;
         btnSubmit = binding.btnSubmit;
+        bottomNavigationView = binding.bottomNavigation;
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +86,26 @@ public class MainActivity extends AppCompatActivity {
                 savePost(description, currentUser, photoFile);
             }
         });
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment;
+                switch (item.getItemId()) {
+                    case R.id.action_home:
+                        break;
+                    case R.id.action_compose:
+                        break;
+                    case R.id.action_profile:
+                        break;
+                    default:
+                        break;
+                }
+                //fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
+                return true;
+            }
+        });
+
 
        //queryPost();
     }
