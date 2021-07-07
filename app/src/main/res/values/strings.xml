@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Instagram</string>
     <string name="login">Login</string>
+    <string name="description">Description...</string>
+    <string name="take_picture">Take Picture</string>
+    <string name="img">Img</string>
 </resources>
