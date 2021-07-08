@@ -25,15 +25,12 @@ import android.widget.Toast;
 
 import com.example.instagram.databinding.FragmentComposeBinding;
 import com.example.instagram.utils.Post;
-import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import java.io.File;
-import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -160,24 +157,6 @@ public class ComposeFragment extends Fragment {
                 Log.i(TAG, "Post save was successful!");
                 etDescription.setText("");
                 ivPostImage.setImageResource(0);
-            }
-        });
-    }
-
-    private void queryPost() {
-        // Specify which class to query
-        ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
-        query.include(Post.KEY_USER);
-        query.findInBackground(new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> posts, ParseException e) {
-                if(e != null) {
-                    Log.e(TAG, "Issue with getting posts", e);
-                    return;
-                }
-                for (Post post : posts) {
-                    Log.i(TAG, "Post" + post.getDescription());
-                }
             }
         });
     }
