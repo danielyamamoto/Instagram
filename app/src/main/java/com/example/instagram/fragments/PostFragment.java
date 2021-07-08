@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,13 +22,18 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Headers;
 
 public class PostFragment extends Fragment {
 
     public static final String TAG = "PostFragment";
 
+    private SwipeRefreshLayout swipeContainer;
     private FragmentPostBinding binding;
     private RecyclerView rvPosts;
     protected PostsAdapter adapter;
@@ -59,6 +65,25 @@ public class PostFragment extends Fragment {
 
         // Adds separating line
         rvPosts.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+
+        // Lookup the swipe container view
+        swipeContainer = binding.swipeContainer;
+        // Setup refresh listener which triggers new data loading
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                adapter.clear();
+                // Get all the post
+                queryPost();
+                swipeContainer.setRefreshing(false);
+            }
+        });
+        // Configure the refreshing colors
+        swipeContainer.setColorSchemeResources(
+                android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
 
         queryPost();
     }
