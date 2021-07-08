@@ -9,32 +9,6 @@
     android:orientation="vertical"
     tools:context="com.example.instagram.activities.MainActivity">
 
-    <EditText
-        android:id="@+id/etDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/description" />
-
-    <Button
-        android:id="@+id/btnCaptureImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/take_picture" />
-
-    <ImageView
-        android:id="@+id/ivPostImage"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:contentDescription="@string/img"
-        app:srcCompat="@color/instagram_pink_dark" />
-
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit" />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
