@@ -30,8 +30,8 @@ public class PostFragment extends Fragment {
 
     private FragmentPostBinding binding;
     private RecyclerView rvPosts;
-    private PostsAdapter adapter;
-    private List<Post> allPosts;
+    protected PostsAdapter adapter;
+    protected List<Post> allPosts;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,7 +63,7 @@ public class PostFragment extends Fragment {
         queryPost();
     }
 
-    private void queryPost() {
+    protected void queryPost() {
         // Specify which class to query
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
