@@ -12,13 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.instagram.activities.LoginActivity;
-import com.example.instagram.adapters.PostsAdapter;
+import com.example.instagram.adapters.FeedAdapter;
 import com.example.instagram.databinding.FragmentFeedBinding;
 import com.example.instagram.utils.Post;
 import com.parse.FindCallback;
@@ -35,7 +34,7 @@ public class FeedFragment extends Fragment {
 
     private FragmentFeedBinding binding;
     private SwipeRefreshLayout swipeContainer;
-    private PostsAdapter adapter;
+    private FeedAdapter adapter;
     private List<Post> allPosts;
     private RecyclerView rvPosts;
     private Button btnLogout;
@@ -60,11 +59,11 @@ public class FeedFragment extends Fragment {
 
         // Init the list of posts and adapter
         allPosts = new ArrayList<>();
-        adapter = new PostsAdapter(getContext(), allPosts);
+        adapter = new FeedAdapter(getContext(), allPosts);
 
         // Recycler view setup: layout manager and the adapter
         rvPosts.setAdapter(adapter);
-        rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvPosts.setLayoutManager(new GridLayoutManager(getContext(), 3));
 
         // Adds separating line
         //rvPosts.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));

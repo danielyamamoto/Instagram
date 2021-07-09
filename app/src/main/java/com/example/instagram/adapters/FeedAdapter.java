@@ -2,7 +2,6 @@ package com.example.instagram.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcel;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.instagram.R;
+import com.example.instagram.activities.DetailsPostActivity;
 import com.example.instagram.databinding.ItemFeedBinding;
 import com.example.instagram.utils.Post;
 import com.parse.ParseFile;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -85,9 +87,9 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Intent intent = new Intent(context, DetailsActivity.class);
-                    //intent.putExtra("postDetails", Parcel.wrap(post));
-                    //context.startActivity(intent);
+                    Intent intent = new Intent(context, DetailsPostActivity.class);
+                    intent.putExtra(Post.class.getSimpleName(), Parcels.wrap(post));
+                    context.startActivity(intent);
                 }
             });
         }

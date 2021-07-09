@@ -4,7 +4,7 @@
 
 Submitted by: **Daniel Yamamoto**
 
-Time spent: **22** hours spent in total
+Time spent: **23** hours spent in total
 
 ## User Stories
 
@@ -19,7 +19,7 @@ The following **required** functionality is completed:
 * [x] User can view the last 20 posts submitted to "Instagram"
 * [x] User can pull to refresh the last 20 posts submitted to "Instagram"
 * [x] User should be displayed the relative timestamp
-* [ ] User can tap a post to view post details
+* [x] User can tap a post to view post details
 
 The following **stretch** features are implemented:
 
