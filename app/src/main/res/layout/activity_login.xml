@@ -12,18 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="horizontal"
             android:layout_margin="20dp">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/img"
-                tools:srcCompat="@mipmap/nav_logo_whiteout" />
+                tools:srcCompat="@drawable/nav_logo_whiteout" />
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -42,7 +43,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
-            android:hint="Username" />
+            android:hint="@string/username"
+            android:inputType="text"/>
 
         <EditText
             android:id="@+id/etPassword"
@@ -50,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword" />
 
         <Button

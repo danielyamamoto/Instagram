@@ -11,4 +11,6 @@
     <string name="home">Home</string>
     <string name="compose">Compose</string>
     <string name="profile">Profile</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
 </resources>
