@@ -22,12 +22,8 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 
-import org.json.JSONException;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import okhttp3.Headers;
 
 public class PostFragment extends Fragment {
 
