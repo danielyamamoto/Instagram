@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.instagram.R;
 import com.example.instagram.databinding.ActivityLoginBinding;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -22,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     public static final String TAG = "LoginActivity";
 
     private EditText etUsername, etPassword;
-    private Button btnLogin;
+    private Button btnLogin, btnSingUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +52,14 @@ public class LoginActivity extends AppCompatActivity {
                 loginUser(username, password);
             }
         });
+
+        btnSingUp = binding.btnSignUp;
+        btnSingUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToSignUp();
+            }
+        });
     }
 
     private void loginUser(String username, String password) {
@@ -73,6 +80,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private void goToMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void goToSignUp() {
+        Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
         finish();
     }

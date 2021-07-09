@@ -15,8 +15,18 @@
         android:roundIcon="@drawable/ic_launcher_instagram"
         android:supportsRtl="true"
         android:theme="@style/Theme.Instagram">
-        <activity android:name=".activities.DetailsPostActivity"></activity>
-        <!-- make sure within the application tag, otherwise app will crash with XmlResourceParser errors -->
+        <activity
+            android:name=".activities.SignUpActivity"
+            android:configChanges="orientation"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Instagram.NoActionBar" />
+        <activity
+            android:name=".activities.DetailsPostActivity"
+            android:configChanges="orientation"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Instagram.NoActionBar" />
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.codepath.fileprovider"
@@ -26,7 +36,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/fileprovider" />
         </provider>
-
         <activity
             android:name=".activities.LoginActivity"
             android:configChanges="orientation"
@@ -44,7 +53,7 @@
             android:configChanges="orientation"
             android:label=""
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Instagram.NoActionBar"></activity>
+            android:theme="@style/Theme.Instagram.NoActionBar" />
     </application>
 
 </manifest>

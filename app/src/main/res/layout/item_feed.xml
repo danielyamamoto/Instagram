@@ -6,7 +6,7 @@
     android:layout_height="120dp"
     android:layout_gravity="center"
     app:cardElevation="0dp"
-    android:layout_margin="0dp">
+    android:layout_margin="0dp" >
 
     <ImageView
         android:id="@+id/ivFeedPic"

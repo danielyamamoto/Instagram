@@ -10,7 +10,7 @@ Time spent: **23** hours spent in total
 
 The following **required** functionality is completed:
 
-* [ ] User can **sign up** to create a new account using Parse authentication
+* [x] User can **sign up** to create a new account using Parse authentication
 * [x] User can **log in** of his or her account
 * [x] The current signed in user is persisted across app restarts
 * [x] User can log out of his or her account
@@ -57,7 +57,7 @@ Describe any challenges encountered while building the app.
 
 ## Open-source libraries used
 
-- [Android Async HTTP](https://github.com/loopj/android-async-http) - Simple asynchronous HTTP requests with JSON parsing
+- [Parse Server](https://github.com/parse-community/parse-server/wiki) - Parse provides a cloud-based backend service to build data-driven mobile apps quickly
 - [Glide](https://github.com/bumptech/glide) - Image loading and caching library for Android
 
 ## License

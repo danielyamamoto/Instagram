@@ -65,9 +65,6 @@ public class FeedFragment extends Fragment {
         rvPosts.setAdapter(adapter);
         rvPosts.setLayoutManager(new GridLayoutManager(getContext(), 3));
 
-        // Adds separating line
-        //rvPosts.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-
         // Lookup the swipe container view
         swipeContainer = binding.swipeContainer;
         // Setup refresh listener which triggers new data loading

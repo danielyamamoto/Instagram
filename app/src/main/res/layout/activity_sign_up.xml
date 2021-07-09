@@ -50,22 +50,22 @@
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@color/instagram_pink"
             android:backgroundTint="@color/instagram_pink"
-            android:text="@string/login" />
+            android:text="@string/signup" />
 
         <Button
-            android:id="@+id/btnSignUp"
+            android:id="@+id/btnCancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@color/instagram_pink_dark"
             android:backgroundTint="@color/instagram_pink_dark"
-            android:text="@string/signup" />
+            android:text="@string/cancel" />
 
     </LinearLayout>
 
