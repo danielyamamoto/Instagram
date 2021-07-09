@@ -12,19 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/imageView"
+            android:contentDescription="@string/img"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_margin="20dp">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:contentDescription="@string/img"
-                tools:srcCompat="@drawable/nav_logo_whiteout" />
-
-        </LinearLayout>
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            app:srcCompat="@drawable/nav_logo_whiteout" />
 
     </androidx.appcompat.widget.Toolbar>
 
