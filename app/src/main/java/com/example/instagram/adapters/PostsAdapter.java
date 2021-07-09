@@ -63,7 +63,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
         private ItemPostBinding binding;
         private ImageView ivImage;
-        private TextView tvUsername, tvDescription;
+        private TextView tvUsername, tvDescription, tvDate;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,6 +72,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             tvUsername = binding.tvUsername;
             ivImage = binding.ivImage;
             tvDescription = binding.tvDescription;
+            tvDate = binding.tvDate;
         }
 
         public void bind(Post post) {
@@ -82,9 +83,18 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             if (image != null) {
                 ivImage.setVisibility(View.VISIBLE);
                 Glide.with(context).load(post.getImage().getUrl()).into(ivImage);
+                // .apply(RequestOptions.circleCropTransform())
+
+                /*
+                * implementation 'jp.wasabeef:glide-transformations:4.1.0'
+    // If you want to use the GPU Filters
+    implementation 'jp.co.cyberagent.android:gpuimage:2.0.4'
+                * */
+
             } else {
                 ivImage.setVisibility(View.GONE);
             }
+            tvDate.setText(Post.calculateTimeAgo(post.getCreatedAt()));
         }
     }
 }
