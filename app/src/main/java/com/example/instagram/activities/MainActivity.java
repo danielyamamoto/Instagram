@@ -2,7 +2,6 @@ package com.example.instagram.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -26,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
     private FrameLayout flContainer;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = binding.bottomNavigation;
         flContainer = binding.flContainer;
-
-        toolbar = binding.toolbar;
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("");
-        //getSupportActionBar().setLogo(R.drawable.nav_logo_whiteout);
-
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -61,8 +53,7 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new FeedFragment();
                         break;
                     default:
-                        fragment = new PostFragment();
-                        break;
+                        return false;
                 }
                 fragmentManager.beginTransaction().replace(flContainer.getId(), fragment).commit();
                 return true;

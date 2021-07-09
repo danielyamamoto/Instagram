@@ -46,6 +46,7 @@ public class DetailsPostActivity extends AppCompatActivity {
         // Unwrap the tweet passed in via intent, using its simple name as a key
         mPost = (Post) Parcels.unwrap(getIntent().getParcelableExtra(Post.class.getSimpleName()));
 
+        // Set the toolbar
         Toolbar toolbar = binding.tbDetails;
         setSupportActionBar(toolbar);
 

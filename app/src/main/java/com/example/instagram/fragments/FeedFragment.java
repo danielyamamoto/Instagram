@@ -6,7 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,12 +17,16 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.instagram.R;
 import com.example.instagram.activities.LoginActivity;
 import com.example.instagram.adapters.FeedAdapter;
 import com.example.instagram.databinding.FragmentFeedBinding;
 import com.example.instagram.models.Post;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
@@ -37,8 +42,8 @@ public class FeedFragment extends Fragment {
     private FeedAdapter adapter;
     private List<Post> allPosts;
     private RecyclerView rvPosts;
-    private Button btnLogout;
-    Toolbar toolbar;
+    private ImageView ivProfile;
+    private TextView tvUsername, tvTextname;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -55,7 +60,17 @@ public class FeedFragment extends Fragment {
 
         // Find the recycler view
         rvPosts = binding.rvPostsFeed;
-        //toolbar = binding.tbFeed;
+
+        // Set the toolbar
+        Toolbar toolbar = binding.tbFeed;
+        toolbar.inflateMenu(R.menu.menu_feed_navigation);
+            toolbar.setOnMenuItemClickListener(item -> {
+                switch (item.getItemId()) {
+                    case R.id.action_settings: logout(); break;
+                    default: return false;
+                }
+                return true;
+            });
 
         // Init the list of posts and adapter
         allPosts = new ArrayList<>();
@@ -84,13 +99,26 @@ public class FeedFragment extends Fragment {
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
 
-        btnLogout = binding.btnLogout;
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                logout();
-            }
-        });
+        tvUsername = binding.tvUsername;
+        tvUsername.setText(ParseUser.getCurrentUser().getUsername());
+
+        tvTextname = binding.tvText;
+        tvTextname.setText(ParseUser.getCurrentUser().getUsername());
+
+        ivProfile = binding.ivPicProfile;
+
+        // Picture profile
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        ParseFile profile = (ParseFile) currentUser.getParseFile("profile");
+        if (profile != null) {
+            ivProfile.setVisibility(View.VISIBLE);
+            Glide.with(this).
+                    load(profile.getUrl())
+                    .apply(RequestOptions.circleCropTransform())
+                    .into(ivProfile);
+        } else {
+            ivProfile.setVisibility(View.GONE);
+        }
 
         queryPost();
     }
