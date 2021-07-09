@@ -65,7 +65,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
         private ItemPostBinding binding;
         private ImageView ivImage, ivProfile;
-        private TextView tvUsername, tvDescription, tvDate;
+        private TextView tvUsername, tvDescription, tvDate, tvLikes;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -76,6 +76,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             ivImage = binding.ivImage;
             tvDescription = binding.tvDescription;
             tvDate = binding.tvDate;
+            tvLikes = binding.tvLikesCount;
         }
 
         // Bind the post data to the view elements
@@ -109,6 +110,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             }
 
             tvDate.setText(Post.calculateTimeAgo(post.getCreatedAt()));
+            tvLikes.setText(String.valueOf(post.getLikesCount()) + " likes");
         }
     }
 }

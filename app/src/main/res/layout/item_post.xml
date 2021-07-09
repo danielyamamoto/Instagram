@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="25dp">
 
     <RelativeLayout
         android:id="@+id/rlHeader"
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
             android:layout_toEndOf="@id/ivPicProfile"
             android:textStyle="bold"
             tools:text="@string/item_username" />
@@ -44,21 +44,79 @@
         android:layout_below="@id/rlHeader"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/tvDescription"
+    <RelativeLayout
+        android:id="@+id/llpanels"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@id/ivImage"
-        android:layout_marginStart="10dp"
-        tools:text="@string/item_description" />
+        android:layout_marginStart="10dp">
 
-    <TextView
-        android:id="@+id/tvDate"
+        <ImageView
+            android:id="@+id/ivLikePost"
+            android:contentDescription="@string/img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:srcCompat="@drawable/ufi_heart" />
+
+        <ImageView
+            android:id="@+id/ivCommentPost"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_toEndOf="@+id/ivLikePost"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/img"
+            app:srcCompat="@drawable/ufi_comment" />
+
+        <ImageView
+            android:id="@+id/ivReplyPost"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_toEndOf="@id/ivCommentPost"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/img"
+            app:srcCompat="@drawable/direct" />
+
+        <ImageView
+            android:id="@+id/ivSavePost"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/img"
+            app:srcCompat="@drawable/ufi_save" />
+
+    </RelativeLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvDescription"
+        android:orientation="vertical"
+        android:layout_below="@id/llpanels"
+        android:layout_marginTop="0dp"
         android:layout_marginStart="10dp"
-        tools:text="My time!!!" />
+        android:layout_marginEnd="10dp" >
+
+        <TextView
+            android:id="@+id/tvLikesCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/likes_count" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            tools:text="@string/item_description" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            tools:text="@string/post_relative_time" />
+
+    </LinearLayout>
 
 </RelativeLayout>

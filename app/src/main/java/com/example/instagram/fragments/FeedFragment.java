@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -28,7 +29,7 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProfileFragment extends Fragment {
+public class FeedFragment extends Fragment {
 
     public static final String TAG = "ProfileFragment";
 
@@ -38,6 +39,7 @@ public class ProfileFragment extends Fragment {
     private List<Post> allPosts;
     private RecyclerView rvPosts;
     private Button btnLogout;
+    Toolbar toolbar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,6 +56,7 @@ public class ProfileFragment extends Fragment {
 
         // Find the recycler view
         rvPosts = binding.rvPostsFeed;
+        //toolbar = binding.tbFeed;
 
         // Init the list of posts and adapter
         allPosts = new ArrayList<>();
@@ -64,7 +67,7 @@ public class ProfileFragment extends Fragment {
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Adds separating line
-        rvPosts.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        //rvPosts.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
         // Lookup the swipe container view
         swipeContainer = binding.swipeContainer;

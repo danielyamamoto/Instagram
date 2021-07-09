@@ -4,7 +4,7 @@
 
 Submitted by: **Daniel Yamamoto**
 
-Time spent: **20** hours spent in total
+Time spent: **22** hours spent in total
 
 ## User Stories
 
@@ -23,7 +23,7 @@ The following **required** functionality is completed:
 
 The following **stretch** features are implemented:
 
-* [ ] Style the login page to look like the real Instagram login page
+* [x] Style the login page to look like the real Instagram login page
 * [ ] Style the feed to look like the real Instagram feed
 * [ ] User can load more posts once he or she reaches the bottom of the feed using endless scrolling
 * [x] User should switch between different tabs using using fragments and a Bottom Navigation View
