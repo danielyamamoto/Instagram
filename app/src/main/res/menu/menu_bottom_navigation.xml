@@ -5,18 +5,18 @@
 
     <item
         android:id="@+id/action_home"
-        android:icon="@drawable/instagram_home_outline_24"
+        android:icon="@drawable/home_selector"
         android:title="@string/home"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/action_compose"
-        android:icon="@drawable/instagram_new_post_outline_24"
+        android:icon="@drawable/compose_selector"
         android:title="@string/compose"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_profile"
-        android:icon="@drawable/instagram_user_outline_24"
+        android:icon="@drawable/feed_selector"
         android:title="@string/profile"
         app:showAsAction="always" />
 
