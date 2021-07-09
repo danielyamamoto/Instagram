@@ -29,11 +29,11 @@ public class PostFragment extends Fragment {
 
     public static final String TAG = "PostFragment";
 
-    private SwipeRefreshLayout swipeContainer;
     private FragmentPostBinding binding;
+    private SwipeRefreshLayout swipeContainer;
+    private PostsAdapter adapter;
+    private List<Post> allPosts;
     private RecyclerView rvPosts;
-    protected PostsAdapter adapter;
-    protected List<Post> allPosts;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -84,7 +84,7 @@ public class PostFragment extends Fragment {
         queryPost();
     }
 
-    protected void queryPost() {
+    private void queryPost() {
         // Specify which class to query
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);

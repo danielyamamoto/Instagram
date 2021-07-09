@@ -32,6 +32,7 @@
             android:layout_toEndOf="@id/ivPicProfile"
             android:textStyle="bold"
             tools:text="@string/item_username" />
+
     </RelativeLayout>
 
     <ImageView
