@@ -39,9 +39,10 @@
         android:id="@+id/ivImage"
         android:contentDescription="@string/img"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="300dp"
         android:layout_marginTop="5dp"
         android:layout_below="@id/rlHeader"
+        android:scaleType="centerCrop"
         tools:srcCompat="@tools:sample/avatars" />
 
     <RelativeLayout
