@@ -13,7 +13,7 @@
         android:layout_height="wrap_content" >
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/ivBack"
             android:contentDescription="@string/img"
             android:layout_width="match_parent"
             android:layout_height="50dp"

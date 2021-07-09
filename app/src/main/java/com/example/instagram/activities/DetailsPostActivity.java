@@ -1,6 +1,7 @@
 package com.example.instagram.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.View;
@@ -20,8 +21,8 @@ public class DetailsPostActivity extends AppCompatActivity {
 
     private Post mPost;
 
-    private ImageView ivImage, ivProfile;
-    private TextView tvUsername, tvDescription, tvDate, tvLikes;
+    private ImageView ivImage, ivProfile, ivBack;
+    private TextView tvUsername, tvDescription, tvDate, tvLikes, tvText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +40,25 @@ public class DetailsPostActivity extends AppCompatActivity {
         tvDescription = binding.tvDescription;
         tvDate = binding.tvDate;
         tvLikes = binding.tvLikesCount;
+        ivBack = binding.ivBack;
+        tvText = binding.tvText;
 
         // Unwrap the tweet passed in via intent, using its simple name as a key
         mPost = (Post) Parcels.unwrap(getIntent().getParcelableExtra(Post.class.getSimpleName()));
 
+        Toolbar toolbar = binding.tbDetails;
+        setSupportActionBar(toolbar);
+
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        tvText.setText("Posts");
+
+        // Picture profile
         ParseUser currentUser = mPost.getUser();
         ParseFile profile = (ParseFile) currentUser.getParseFile("profile");
         if (profile != null) {
