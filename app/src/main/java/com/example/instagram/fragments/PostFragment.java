@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 
 import com.example.instagram.adapters.PostsAdapter;
 import com.example.instagram.databinding.FragmentPostBinding;
-import com.example.instagram.utils.Post;
+import com.example.instagram.models.Post;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;

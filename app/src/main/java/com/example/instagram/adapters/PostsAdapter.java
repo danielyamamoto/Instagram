@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.instagram.R;
 import com.example.instagram.databinding.ItemPostBinding;
-import com.example.instagram.utils.Post;
+import com.example.instagram.models.Post;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 

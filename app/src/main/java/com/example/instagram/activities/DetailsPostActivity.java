@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.instagram.databinding.ActivityDetailsPostBinding;
-import com.example.instagram.utils.Post;
+import com.example.instagram.models.Post;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 

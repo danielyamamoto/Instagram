@@ -24,7 +24,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.instagram.databinding.FragmentComposeBinding;
-import com.example.instagram.utils.Post;
+import com.example.instagram.models.Post;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
