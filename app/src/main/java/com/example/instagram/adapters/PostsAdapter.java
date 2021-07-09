@@ -11,10 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.instagram.R;
 import com.example.instagram.databinding.ItemPostBinding;
 import com.example.instagram.utils.Post;
 import com.parse.ParseFile;
+import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -62,38 +64,50 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     class ViewHolder extends RecyclerView.ViewHolder {
 
         private ItemPostBinding binding;
-        private ImageView ivImage;
+        private ImageView ivImage, ivProfile;
         private TextView tvUsername, tvDescription, tvDate;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             binding = ItemPostBinding.bind(itemView);
 
+            ivProfile = binding.ivPicProfile;
             tvUsername = binding.tvUsername;
             ivImage = binding.ivImage;
             tvDescription = binding.tvDescription;
             tvDate = binding.tvDate;
         }
 
+        // Bind the post data to the view elements
         public void bind(Post post) {
-            // Bind the post data to the view elements
+            // Picture profile
+            ParseUser currentUser = post.getUser();
+            ParseFile profile = (ParseFile) currentUser.getParseFile("profile");
+            if (profile != null) {
+                ivProfile.setVisibility(View.VISIBLE);
+                Glide.with(context).
+                        load(profile.getUrl())
+                        .apply(RequestOptions.circleCropTransform())
+                        .into(ivProfile);
+            } else {
+                ivProfile.setVisibility(View.GONE);
+            }
+
             tvUsername.setText(post.getUser().getUsername());
             tvDescription.setText(post.getDescription());
+
+            // Picture post
             ParseFile image = post.getImage();
             if (image != null) {
                 ivImage.setVisibility(View.VISIBLE);
-                Glide.with(context).load(post.getImage().getUrl()).into(ivImage);
-                // .apply(RequestOptions.circleCropTransform())
-
-                /*
-                * implementation 'jp.wasabeef:glide-transformations:4.1.0'
-    // If you want to use the GPU Filters
-    implementation 'jp.co.cyberagent.android:gpuimage:2.0.4'
-                * */
+                Glide.with(context).
+                        load(post.getImage().getUrl())
+                        .into(ivImage);
 
             } else {
                 ivImage.setVisibility(View.GONE);
             }
+
             tvDate.setText(Post.calculateTimeAgo(post.getCreatedAt()));
         }
     }

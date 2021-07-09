@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.instagram">
+    package="com.example.instagram"
+    android:versionCode="1"
+    android:versionName="1.0">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -26,15 +28,23 @@
                 android:resource="@xml/fileprovider" />
         </provider>
 
-
-        <activity android:name="com.example.instagram.activities.LoginActivity">
+        <activity
+            android:name="com.example.instagram.activities.LoginActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Instagram.NoActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.instagram.activities.MainActivity">
+        <activity
+            android:name="com.example.instagram.activities.MainActivity"
+            android:label=""
+            android:theme="@style/Theme.Instagram.NoActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

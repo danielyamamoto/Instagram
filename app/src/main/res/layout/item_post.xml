@@ -8,20 +8,39 @@
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp">
 
-    <TextView
-        android:id="@+id/tvUsername"
+    <RelativeLayout
+        android:id="@+id/rlHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        tools:text="@string/item_username" />
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/ivPicProfile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:contentDescription="@string/img"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/ivPicProfile"
+            android:textStyle="bold"
+            tools:text="@string/item_username" />
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/ivImage"
         android:contentDescription="@string/img"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_below="@id/tvUsername"
+        android:layout_height="220dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/rlHeader"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -30,6 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_below="@id/ivImage"
+        android:layout_marginStart="10dp"
         tools:text="@string/item_description" />
 
     <TextView
@@ -37,6 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvDescription"
+        android:layout_marginStart="10dp"
         tools:text="My time!!!" />
 
 </RelativeLayout>
