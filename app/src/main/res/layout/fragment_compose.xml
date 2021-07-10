@@ -8,6 +8,26 @@
     android:layout_margin="16dp"
     tools:context=".fragments.ComposeFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbCompose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:src="@drawable/nav_logo_whiteout" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
     <EditText
         android:id="@+id/etDescription"
         android:layout_width="match_parent"
@@ -32,6 +52,6 @@
         android:id="@+id/btnSubmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit" />
+        android:text="@string/submit" />
 
 </LinearLayout>

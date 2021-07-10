@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.instagram.adapters.PostsAdapter;
 import com.example.instagram.databinding.FragmentPostBinding;
@@ -33,6 +34,7 @@ public class PostFragment extends Fragment {
     private PostsAdapter adapter;
     private List<Post> allPosts;
     private RecyclerView rvPosts;
+    private ImageView ivLogo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -76,6 +78,14 @@ public class PostFragment extends Fragment {
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
+
+        ivLogo = binding.ivLogo;
+        ivLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rvPosts.smoothScrollToPosition(0);
+            }
+        });
 
         queryPost();
     }

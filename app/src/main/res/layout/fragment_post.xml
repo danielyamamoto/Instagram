@@ -6,10 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".fragments.PostFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp">
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="-70dp"
+                android:src="@drawable/nav_logo_whiteout" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/tbPost">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPosts"
