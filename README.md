@@ -4,7 +4,7 @@
 
 Submitted by: **Daniel Yamamoto**
 
-Time spent: **23** hours spent in total
+Time spent: **25** hours spent in total
 
 ## User Stories
 
